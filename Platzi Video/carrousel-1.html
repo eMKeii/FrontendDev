@@ -1,103 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Carrousel 1</title>
+    <title>Carousel 1</title>
 </head>
 <style>
-    .body {
-        margin: 0;
-    }
-    
-    .carousel {
-        width: 100%;
-        overflow: scroll;
-        padding: 30px;
-        position: relative;
-    }
-    
-    .carousel__container {
-        white-space: nowrap;
-        margin: 70px 0px;
-        padding: 10px;
-        padding-bottom: 10px;
-    }
-    
-    .carousel-item {
-        background-color: palevioletred;
-        width: 200px;
-        height: 250px;
-        border-radius: 20px;
-        overflow: hidden;
-        margin-right: 10px;
-        display: inline-block;
-        cursor: pointer;
-        transition: 450ms;
-        transform-origin: center left;
-        position: relative;
-    }
-    /* Estamos usando estas propiedades para darle fluidez a las animaciones */
-    
-    .carousel-item:hover~.carousel-item {
-        transform: translate3d(100px, 0, 0);
-    }
-    /* Esto de aqui nos permite controlar que cuando se haga hover dentro del item se vulva opaco */
-    
-    .carousel__container:hover .carousel-item {
-        opacity: 0.3;
-    }
-    /* Este apartado nos permite cambiar el comportamiento del item cuando hacemos hover especificamente en el */
-    
-    .carousel__container:hover .carousel-item:hover {
-        transform: scale(1.5);
-        opacity: 1;
-        display: flex;
-    }
+body {
+    margin: 0px;
+}
 
-    .carousel-item__image {
-        height: 200px;
-        width: 200px;
-        object-fit: cover;
-    }
-    .carousel-item__details {
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9), 100%);
-        font-size: 10px;
-        opacity: 0;
-        transition: 450ms opacity;
-        padding: 10px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-    }
+.carousel {
+    width: 100%;
+    overflow: scroll;
+    padding: 30px;
+    position: relative;
+}
 
-    .carousel-item__details:hover {
-        opacity: 1;
-    }
+.carousel__container {
+    white-space: nowrap;
+    margin: 70px 0px;
+    padding-bottom: 10px; 
+}
+
+.carousel-item {
+    background-color: palevioletred;
+    width: 200px;
+    height: 250px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-right: 10px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 450ms all;
+    transform-origin: center left;
+    position: relative;
+}
+
+.carousel-item:hover ~ .carousel-item {
+    transform: translate3d(100px, 0, 0);
+}
+
+.carousel__container:hover .carousel-item {
+    opacity: 0.3;
+}
+
+.carousel__container:hover .carousel-item:hover {
+    transform: scale(1.5);
+    opacity: 1;
+}
+
+.carousel-item__img {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.carousel-item__details {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    font-size: 10px;
+    opacity: 0;
+    transition: 450ms opacity;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.carousel-item__details:hover {
+    opacity: 0.9;
+}
+
 </style>
-
 <body>
     <section class="carousel">
         <div class="carousel__container">
-            <div class="carousel-item">
-                <img class="carousel-item__image" src="https://images.pexels.com/photos/5429087/pexels-photo-5429087.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Girl">
-                <div class="carousel-item__details">
-                    <div>
-                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggc3R5bGU9ImZpbGw6I0ZGNTk4QjsiIGQ9Ik00MzcuMDE5LDc0Ljk4QzM4OC42NjcsMjYuNjI5LDMyNC4zOCwwLDI1NiwwQzE4Ny42MTksMCwxMjMuMzMyLDI2LjYyOSw3NC45NzksNzQuOTgNCglDMjYuNjI4LDEyMy4zMzIsMCwxODcuNjIsMCwyNTZzMjYuNjI4LDEzMi42NjgsNzQuOTc5LDE4MS4wMkMxMjMuMzMyLDQ4NS4zNzEsMTg3LjYxOSw1MTIsMjU2LDUxMg0KCWM2OC4zOCwwLDEzMi42NjctMjYuNjI5LDE4MS4wMTktNzQuOThDNDg1LjM3MSwzODguNjY3LDUxMiwzMjQuMzgsNTEyLDI1NlM0ODUuMzcxLDEyMy4zMzMsNDM3LjAxOSw3NC45OHoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiNFNjI5M0Y7IiBkPSJNNDM3LjAxOSw3NC45OEMzODguNjY3LDI2LjYyOSwzMjQuMzgsMCwyNTYsMHY1MTJjNjguMzgsMCwxMzIuNjY3LTI2LjYyOSwxODEuMDE5LTc0Ljk4DQoJQzQ4NS4zNzEsMzg4LjY2Nyw1MTIsMzI0LjM4LDUxMiwyNTZTNDg1LjM3MSwxMjMuMzMzLDQzNy4wMTksNzQuOTh6Ii8+DQo8cGF0aCBzdHlsZT0iZmlsbDojQzdFRkZGOyIgZD0iTTQwMC44ODYsMjQzLjUyTDIwOC4wODUsMTE0Ljk4NmMtNC42MDQtMy4wNy0xMC41MjMtMy4zNTUtMTUuMzk5LTAuNzQ1DQoJYy00Ljg3NywyLjYxLTcuOTIyLDcuNjkzLTcuOTIyLDEzLjIyNnYyNTcuMDY2YzAsNS41MzIsMy4wNDUsMTAuNjE1LDcuOTIyLDEzLjIyNWMyLjIxOCwxLjE4OCw0LjY1LDEuNzc1LDcuMDc3LDEuNzc1DQoJYzIuOTEsMCw1LjgxMi0wLjg0Niw4LjMyMS0yLjUybDE5Mi44MDEtMTI4LjUzMmM0LjE3My0yLjc4MSw2LjY4LTcuNDY1LDYuNjgtMTIuNDhDNDA3LjU2NSwyNTAuOTg1LDQwNS4wNTksMjQ2LjMwMyw0MDAuODg2LDI0My41Mg0KCXoiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiM5MUUxRkY7IiBkPSJNNDAwLjg4NiwyNDMuNTJMMjU2LDE0Ni45M3YyMTguMTQybDE0NC44ODYtOTYuNTljNC4xNzMtMi43ODEsNi42OC03LjQ2NSw2LjY4LTEyLjQ4DQoJQzQwNy41NjUsMjUwLjk4NSw0MDUuMDU5LDI0Ni4zMDMsNDAwLjg4NiwyNDMuNTJ6Ii8+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" />
-                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJDQoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iLTQ0LjkxMzIiIHkxPSI2MTUuOTY4OCIgeDI9IjEwLjg1MzciIHkyPSI2MTUuOTY4OCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxMC42NjY3IDAgMCAtMTAuNjY2NyA0NzMuNjY2NyA2ODI2LjMzMzUpIj4NCgkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0U5M0UzQSIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIwLjM1OSIgc3R5bGU9InN0b3AtY29sb3I6I0VENjgzQyIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIwLjcwMiIgc3R5bGU9InN0b3AtY29sb3I6I0YzOTAzRiIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRkRDNzBDIi8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgk8cGF0aCBzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzFfKTsiIGQ9Ik0yNTYsMEMxMTQuNjE1LDAsMCwxMTQuNjE1LDAsMjU2czExNC42MTUsMjU2LDI1NiwyNTZzMjU2LTExNC42MTUsMjU2LTI1Ng0KCQlDNTExLjgzNSwxMTQuNjgzLDM5Ny4zMTcsMC4xNjUsMjU2LDB6IE0yNTYsNDkwLjY2N0MxMjYuMzk3LDQ5MC42NjcsMjEuMzMzLDM4NS42MDMsMjEuMzMzLDI1NlMxMjYuMzk3LDIxLjMzMywyNTYsMjEuMzMzDQoJCVM0OTAuNjY3LDEyNi4zOTcsNDkwLjY2NywyNTZDNDkwLjUyLDM4NS41NDIsMzg1LjU0Miw0OTAuNTIsMjU2LDQ5MC42Njd6Ii8+DQoJDQoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMl8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iLTQ0LjkxMzIiIHkxPSI2MTUuOTY4OCIgeDI9IjEwLjg1MzciIHkyPSI2MTUuOTY4OCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxMC42NjY3IDAgMCAtMTAuNjY2NyA0NzMuNjY2NyA2ODI2LjMzMzUpIj4NCgkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0U5M0UzQSIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIwLjM1OSIgc3R5bGU9InN0b3AtY29sb3I6I0VENjgzQyIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIwLjcwMiIgc3R5bGU9InN0b3AtY29sb3I6I0YzOTAzRiIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRkRDNzBDIi8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgk8cGF0aCBzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzJfKTsiIGQ9Ik0yNjYuNjY3LDI0NS4zMzNWNzQuNjY3aC0yMS4zMzN2MTcwLjY2N0g3NC42Njd2MjEuMzMzaDE3MC42Njd2MTcwLjY2N2gyMS4zMzNWMjY2LjY2Nw0KCQloMTcwLjY2N3YtMjEuMzMzSDI2Ni42Njd6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" />                        
-                    </div>
-                    <p class="carousel-item__details--title">Título descriptivo</p>
-                    <p class="carousel-item__details--subtitle'">2019 16+ 114m.</p>
-                </div>
+        <div class="carousel-item">
+            <img class="carousel-item__img" src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="People">
+            <div class="carousel-item__details">
+            <div>
+                <img src="../icons/play-icon.png" alt="Play">
+                <img src="../icons/plus-icon.png" alt="Plus">
             </div>
-            <div class="carousel-item">
+            <p class="carousel-item__details--title">Título descriptivo</p>
+            <p class="carousel-item__details--subtitle">2019 16+ 114 minutos</p>
             </div>
+        </div>
+        <div class="carousel-item">
+        </div>
         </div>
     </section>
 </body>
-
 </html>
