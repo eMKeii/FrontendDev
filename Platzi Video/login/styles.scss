@@ -1,0 +1,183 @@
+$blanco: $blanco;
+
+body {
+  margin: 0px;
+  font-family: 'Muli', sans-serif;
+}
+
+//Clase para reemplazar display:flex;
+@mixin flex {
+  display: flex;
+  align-items: center;
+}
+.header {
+  align-items: center;
+  background-color: #21c08b;
+  color: white;
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  top: 0px;
+  width: 100%;
+}
+
+.header__img {
+  margin-left: 30px;
+  width: 200px;
+}
+
+.login {
+  background: linear-gradient(#21c08b, #AB88FF);
+  display: flex;
+  /* alinea los elementos de forma vertical */
+  align-items: center;
+  /* alinea los elementos de forma horizontal */
+  justify-content: center;
+  /* Hace que los elementos se ubiquen de arriba hacia abajo*/
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.login__container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid;
+  border-radius: 40px;
+  color: white;
+  padding: 60px 68px 40px;
+  min-height: 700px;
+  width: 300px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.login__container--form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__container--form label {
+  font-size: 14px;
+}
+
+.login__container--remember-me {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.login__container--remember-me a {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.login__container--remember-me a:hover {
+  text-decoration: underline;
+}
+
+/* colocar una etqueta con > representa que todos los cambios que se realicen van a ser tomados solo por el dv que se encuentra especificado en ese contenedor*/
+.login__container--social-media > div {
+  @include flex;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+/* En este ejemplo, tomamos la img del div para hacer los cambios explisito*/
+.login__container--social-media > div > img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.login__container--register {
+  font-size: 14px;
+}
+
+.login__container--register > a {
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.login__container--register > a:hover {
+  text-decoration: underline;
+}
+
+.input {
+  background-color: transparent;
+  border-left: 0px;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 2px solid white;
+  margin-bottom: 30px;
+  padding: 0px 20px;
+  outline: none;
+  height: 50px;
+}
+
+::placeholder {
+  color: white;
+  font-family: "Muli", sans-serif;
+  font-size: 16px;
+}
+
+.button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-family: "Muli", sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+  height: 50px;
+  letter-spacing: 1px;
+  margin: 0px 10px;
+}
+
+.footer {
+  include: flex;
+  height: 150px;
+  background-color: #AB88FF;
+}
+
+.footer a {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 0px 10px;
+  margin-left: 10px;
+  letter-spacing: 1px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.login__container > p {
+  letter-spacing: 1px;
+}
+
+@media only screen and (max-width: 600px) {
+  .login__container {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    width: 100%;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .login {
+    padding: 20px;
+  }
+}
+
+/*# sourceMappingURL=styles.scss.map */

@@ -1,23 +1,30 @@
+$blanco: $blanco;
+
 body {
   margin: 0px;
   font-family: 'Muli', sans-serif;
-  background-color: #8F57FD;
+  background-color: #8F57FD;  
+}
+
+//Clase para reemplazar display:flex;
+.flex {
+  display: flex;
+  align-items: center;
 }
 
 .header {
   background-color: #8F57FD;
   width: 100%;
   height: 80px;
-  display: flex;
+  @extend .flex;
   justify-content: space-between;
-  align-items: center;
   font-size: large;
 }
 
 .header__img {
-  width: 200px;
   margin-top: 10px;
   margin-left: 10px;
+  width: 200px;
 }
 
 .header__menu {
@@ -53,10 +60,9 @@ ul:hover {
 }
 
 .header__menu--profile {
-  margin-right: 8px;
-  display: flex;
-  align-items: center;
+  @extend .flex;
   cursor: pointer;
+  margin-right: 8px;
 }
 
 .header__menu--profile img {
@@ -65,16 +71,16 @@ ul:hover {
 }
 
 .header__menu--profile p {
-  margin: 0px;
   color: white;
+  margin: 0px;
 }
 
 .main {
-  height: 300px;
-  display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+  display: flex;
+  justify-content: center;
+  height: 300px;
   padding: 10px;
 }
 
@@ -85,11 +91,9 @@ ul:hover {
 }
 
 .footer {
-  display: flex;
-  align-items: center;
-  height: 150px;
+  @extend .flex;
+  height: 90px;
   width: 100%;
-  background-color: #AB88FF;
 }
 
 .footer a {
@@ -108,15 +112,15 @@ ul:hover {
 
 .categories__title {
   color: white;
-  font-size:16px;
+  font-size: 16px;
   position: absolute;
   padding-left: 30px;
-  width: 100vw;
+  width: calc(100vw - 50px);
 }
 
 .carousel {
-  width: 100%;
-  overflow: scroll;
+  width: calc(100vw - 100px);
+  overflow: hidden;
   padding: 30px;
   position: relative;
 }
@@ -124,7 +128,7 @@ ul:hover {
 .carousel__container {
   white-space: nowrap;
   margin: 70px 0px;
-  padding-bottom: 10px; 
+  padding-bottom: 10px;
 }
 
 .carousel-item {
@@ -162,7 +166,7 @@ ul:hover {
 
 .carousel-item__details {
   align-items: flex-start;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
   bottom: 0;
   display: flex;
   font-size: 10px;
@@ -180,6 +184,7 @@ ul:hover {
 .carousel-item__details--img {
   width: 20px;
 }
+
 .carousel-item:hover .carousel-item__details {
   opacity: 1;
 }
@@ -199,12 +204,47 @@ ul:hover {
   opacity: 0.9;
 }
 
+.notfound {
+  @extend .flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 40px;
+  width: calc(100vw - 100px);
+}
+
+.notfound p {
+  color: white;
+  font-size: 20pt;
+}
+
+.notfound__img {
+  width: 300px;
+  height: 300px;
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+/*  Animaciones*/
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .input {
-  background-color: rgb(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
   border: 2px solid white;
   border-radius: 100px;
-  color : white;
-  font-family: 'Muli', sans-serif;
+  color: white;
+  font-family: "Muli", sans-serif;
   font-size: 16px;
   height: 50px;
   padding: 0px 20px;
@@ -215,3 +255,31 @@ ul:hover {
 ::placeholder {
   color: white;
 }
+
+/*  Media Queries */
+@media only screen and (max-width: 684px) {
+  .notfound {
+    background-image: none;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .login__container {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    width: 100%;
+  }
+
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .login {
+    padding: 20px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.css.map */
+
+/*# sourceMappingURL=styles.scss.map */
